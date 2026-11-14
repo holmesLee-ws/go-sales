@@ -26,3 +26,9 @@
 - 남은 FAIL 둘(관리자 M3, 지루함 B2)은 상한 뒤 규칙을 더 고쳤지만(진단 답의 경험 근거 처리, 방식 변경 차례의 기록) 재실행으로 확인하지 않았다.
 - 환경 한계: 국가법령정보센터(law.go.kr)가 2026-11-13 21:00~11-14 21:00 정기 점검이었다. 대부분의 세션에서 법령 조회는 「확인 전」 경로로만 검증됐다. r4 관리자·졸업 단계는 원문 PDF·법제연구원 참고본으로 확인해 인용하는 경로까지 확인했다. 근거 표(sources.md)의 국내 조문도 법제연구원 국·영문 대역본으로 확인했으므로 law.go.kr 현행본 대조가 남아 있다.
 - 실측한 플랫폼 사실(Claude Code 2.1.325): `-p` 모드에서는 신뢰하지 않은 폴더의 프로젝트 `permissions.allow`가 무시된다(「this workspace has not been trusted」). G3 실행기는 같은 규칙을 `--settings`로 넘겨 신뢰 뒤 상태를 재현했다. 실제 신뢰 흐름은 G4에서 본다.
+
+## G4 출고
+
+- 2026-11-14 GitHub `holmesLee-ws/go-sales`(private)에서 새로 클론한 사본으로 실행했다. 대화형 `claude`(2.1.325, 기본 권한 모드, 프로젝트 설정만)를 pty로 조작했다.
+- 결과: 신뢰 대화상자에서 「Yes」를 고른 뒤 「안녕」과 학습자 답 4개를 보냈다. 권한 창 0회. 첫 질문 → 입구 진단 → `learner/state.json`·`log.md`·`learner/studio/map/01-my-map.html` 생성, `open`으로 HTML 열기까지 묻지 않고 진행됐다. `git status`는 깨끗했다(`learner/` 제외 확인). `node tools/check.mjs` 통과.
+- Claude Desktop과 Windows는 실제 실행으로 확인하지 못했다(R3의 Desktop 절반 미충족). 사람용 1분 확인: Desktop Code 탭에서 클론 폴더를 열고 「안녕」 → 튜터의 첫 질문이 나오는지, 답 두세 번 뒤 `learner/state.json`과 HTML이 생기고 채팅의 경로로 열리는지 본다.

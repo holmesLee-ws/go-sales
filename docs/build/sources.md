@@ -33,6 +33,10 @@ URL 형식: `https://elaw.klri.re.kr/kor_service/lawViewMultiContent.do?hseq=<�
 | 정보통신망법 | 정보통신망 이용촉진 및 정보보호 등에 관한 법률(법률 제21066호, 2025-10-01) | 정보통신망법 제50조 | 영리목적 광고성 정보 전송 제한: 사전 동의(거래관계 예외), 수신 거부·철회, 야간 전송 별도 동의, 전송자·거부 방법 표시, 정기 동의 확인 | 71563 | 직접 |
 | 정보통신망법 시행령 | 같은 법 시행령(2026-03-24) | 정보통신망법 시행령 제61조 | 거래관계 예외 기간(거래 종료일부터 6개월), 야간 별도 동의가 필요 없는 매체(전자우편), 표시 사항 | 74062 | 직접 |
 | 개인정보 보호법 | 개인정보 보호법(법률 제21445호, 2026-09-11 시행) | 보호법 제15조 | 개인정보의 수집·이용 근거(동의, 계약 이행, 정당한 이익 등) | 75275 | 직접 |
+| 개인정보 보호법 | 같은 법 | 보호법 제21조 | 개인정보의 파기(불필요해지면 지체 없이, 다른 법령상 보존 예외) | 75275 | 직접 |
+| 개인정보 보호법 | 같은 법 | 보호법 제28조의2 | 가명정보의 처리(통계작성·과학적 연구·공익적 기록보존 등은 동의 없이). 영업 진단표를 가명으로 만드는 근거가 아니라 「가명으로 바꾸면 무엇이 달라지는가」의 비교점으로 쓴다 | 75275 | 직접 |
+| 청탁금지법 | 같은 법 | 청탁금지법 제5조 | 부정청탁의 금지. 제1항 제6호 입찰·경매 등 직무상 비밀 누설, 제7호 계약 관련 법령을 위반해 계약 당사자 선정·탈락 | 69427 | 직접 |
+| 형법 | 형법(실린 판 2023-08-08 개정) | 형법 제315조 | 경매, 입찰의 방해(위계·위력 등으로 입찰의 공정을 해함) | 63711 | 직접, 이후 개정 대조 필요 |
 | 개인정보위 해석 | 명함·공개된 업무 연락처 | — | 개인정보보호위원회 원문 미확인 — 세션에서 pipc.go.kr로 확인. 단정하지 않는다 | — | 미확인 |
 | 민법 | 민법(법률 제21454호, 2026-03-17) | 민법 제527조 | 계약의 청약의 구속력 | 74420 | 직접 |
 | 민법 | 같은 법 | 민법 제531조 | 격지자간의 계약성립시기(승낙 통지 발송 때) | 74420 | 직접 |
@@ -80,6 +84,6 @@ URL 형식: `https://elaw.klri.re.kr/kor_service/lawViewMultiContent.do?hseq=<�
 | 데모 | Peter E. Cohan, *Great Demo!*, iUniverse, 2003(2판 2005) | https://www.goodreads.com/work/editions/269759 | 2차 |
 | 스토리 | Donald Miller, *Building a StoryBrand*, HarperCollins Leadership, 2017 | https://www.harpercollinsleadership.com/9780718074326/building-a-storybrand | 2차 |
 | 협상(경계) | Roger Fisher·William Ury, *Getting to Yes*, 1981(BATNA). Chris Voss·Tahl Raz, *Never Split the Difference*, HarperBusiness, 2016 | https://www.publishersweekly.com/9780062407801 | 2차 |
-| 영업 속도 | (기회 수 × 평균 거래액 × 승률) ÷ 영업 주기 | https://www.salesforce.com/blog/sales/sales-velocity | 직접(벤더 블로그) |
+| 영업 속도 | (기회 수 × 평균 거래액 × 승률) ÷ 영업 주기 | https://www.salesforce.com/blog/sales/sales-velocity | 직접(벤더 블로그, 2024-03-12 게시) |
 | NRR | 표준 정의 없는 비GAAP 지표. 회사가 정의한다(예: 상장사 10-K의 회사별 정의) | https://www.sec.gov/Archives/edgar/data/1582961/000158296125000035/docn-20241231.htm | 2차 |
 | B2B 구매 여정(Gartner) | 구매자가 공급사와 보내는 시간 비율 수치가 2차 인용에서 17%와 24%로 엇갈림 | https://www.gartner.com/en/sales-service/insights/b2b-buying-journey | 미확인 — 수치를 쓰지 않는다 |

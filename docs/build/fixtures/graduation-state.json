@@ -1,26 +1,132 @@
 {
   "schema": 1,
   "learner": {
-    "name": "",
+    "name": "한예린(가명)",
     "language": "ko",
-    "goal": "",
-    "background": "",
-    "time": "",
-    "interests": []
+    "goal": "팀의 영업을 숫자와 근거로 운영하고 큰 딜을 따는 제안 구조를 만들기",
+    "background": "산업용 IoT·예지보전 솔루션 영업팀장 6년",
+    "time": "주 2회 40분",
+    "interests": [
+      "제조 고객",
+      "마피아 제안"
+    ]
   },
   "current": {
     "module": null,
     "path": null,
     "pending_probe": null
   },
-  "modules": {},
+  "modules": {
+    "D1": {
+      "level": 2,
+      "status": "done",
+      "evidence": [
+        "2026-11-1x 시드 상태 — D1 완료로 가정(G3 졸업 단계 시나리오용)"
+      ],
+      "review_at": null,
+      "review_step": 3
+    },
+    "D4": {
+      "level": 3,
+      "status": "done",
+      "evidence": [
+        "2026-11-1x 시드 상태 — D4 완료로 가정(G3 졸업 단계 시나리오용)"
+      ],
+      "review_at": null,
+      "review_step": 3
+    },
+    "D5": {
+      "level": 2,
+      "status": "done",
+      "evidence": [
+        "2026-11-1x 시드 상태 — D5 완료로 가정(G3 졸업 단계 시나리오용)"
+      ],
+      "review_at": null,
+      "review_step": 3
+    },
+    "L1": {
+      "level": 2,
+      "status": "done",
+      "evidence": [
+        "2026-11-1x 시드 상태 — L1 완료로 가정(G3 졸업 단계 시나리오용)"
+      ],
+      "review_at": null,
+      "review_step": 3
+    },
+    "O1": {
+      "level": 2,
+      "status": "done",
+      "evidence": [
+        "2026-11-1x 시드 상태 — O1 완료로 가정(G3 졸업 단계 시나리오용)"
+      ],
+      "review_at": null,
+      "review_step": 3
+    },
+    "O2": {
+      "level": 3,
+      "status": "done",
+      "evidence": [
+        "2026-11-1x 시드 상태 — O2 완료로 가정(G3 졸업 단계 시나리오용)"
+      ],
+      "review_at": null,
+      "review_step": 3
+    },
+    "O3": {
+      "level": 3,
+      "status": "done",
+      "evidence": [
+        "2026-11-1x 시드 상태 — O3 완료로 가정(G3 졸업 단계 시나리오용)"
+      ],
+      "review_at": null,
+      "review_step": 3
+    },
+    "O4": {
+      "level": 2,
+      "status": "done",
+      "evidence": [
+        "2026-11-1x 시드 상태 — O4 완료로 가정(G3 졸업 단계 시나리오용)"
+      ],
+      "review_at": null,
+      "review_step": 3
+    },
+    "O6": {
+      "level": 2,
+      "status": "done",
+      "evidence": [
+        "2026-11-1x 시드 상태 — O6 완료로 가정(G3 졸업 단계 시나리오용)"
+      ],
+      "review_at": null,
+      "review_step": 3
+    },
+    "P1": {
+      "level": 2,
+      "status": "done",
+      "evidence": [
+        "2026-11-1x 시드 상태 — P1 완료로 가정(G3 졸업 단계 시나리오용)"
+      ],
+      "review_at": null,
+      "review_step": 3
+    },
+    "X2": {
+      "level": 4,
+      "status": "done",
+      "evidence": [
+        "2026-11-1x 시드 상태 — X2 완료로 가정(G3 졸업 단계 시나리오용)"
+      ],
+      "review_at": null,
+      "review_step": 3
+    }
+  },
   "gaps": [],
   "pace": {
-    "read": "unknown",
-    "evidence": "",
+    "read": "flow",
+    "evidence": "시드 상태",
     "action": "",
-    "at": null,
+    "at": "2026-11-13",
     "history": []
   },
-  "preferences": []
+  "preferences": [
+    "숫자로 된 예시를 좋아함",
+    "역할극 선호"
+  ]
 }

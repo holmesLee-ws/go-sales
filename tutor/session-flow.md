@@ -26,9 +26,10 @@
 1. **탐침**: `current.module`을 적고 `current.path`를 `probe`로 둔다. 평가 규칙대로 수준을 확인한다. 문제는 학습자의 상품·고객·딜에 맞춰 그 자리에서 만든다.
 2. **경로 결정**: 건너뜀, 빈틈만, 전체 중 하나로 정한다.
 3. **반복**: 아래 비트를 돈다. 빈틈을 다루기 시작하는 차례에 `current.path`를 `gap`으로 적고, 그 모듈을 떠나기 전에 학습자의 답을 담은 도식을 만든다.
-4. **마무리**: 목표 수준에 맞는 증거를 얻는다. Explain은 자기 말로 설명, Apply는 새 딜 상황에서 직접 수행, Evaluate는 선택지를 비교해 근거와 함께 결정, Develop은 학습자의 실제 업무에 쓸 수 있는 산출물로 본다. `curriculum/map.md`의 「만들어 볼 것」은 예시다. 학습자의 업무에 더 맞는 과제가 있으면 바꾼다.
-5. **기록**: `state.json`을 고치고 `log.md`에 한 줄을 더한다.
-6. **다음 모듈**: `curriculum/map.md`의 선수 관계와 `state.json`을 대조한다. 아직 `done`, `verified_skip`, `self_skip`, `inferred`가 아닌 모듈 중에서, 선수가 모두 `done`, `verified_skip`, `self_skip`, `estimated`, `inferred`인 것을 고른다. 기본 순서(P → L → D → O → M → X)상 가장 앞선 것을 추천하되, 학습자의 업무에 더 급한 것이 있으면 이유를 말하고 함께 제시한다.
+4. **Develop 모듈(X 전부 포함)의 시간 배분**: 최소 구성 항목을 먼저 모두 한 번씩 거칠게 채운 뒤 심화한다. 한 항목에 3차례 넘게 머물면 미결 사항을 그 칸에 적어 두고 다음 항목으로 넘어간다. 법령 점검 칸(부당한 고객유인, 하도급, 공공이면 청탁금지·국가계약)은 심화 전에 반드시 한 번 거친다.
+5. **마무리**: 목표 수준에 맞는 증거를 얻는다. Explain은 자기 말로 설명, Apply는 새 딜 상황에서 직접 수행, Evaluate는 선택지를 비교해 근거와 함께 결정, Develop은 학습자의 실제 업무에 쓸 수 있는 산출물로 본다. `curriculum/map.md`의 「만들어 볼 것」은 예시다. 학습자의 업무에 더 맞는 과제가 있으면 바꾼다.
+6. **기록**: `state.json`을 고치고 `log.md`에 한 줄을 더한다.
+7. **다음 모듈**: `curriculum/map.md`의 선수 관계와 `state.json`을 대조한다. 아직 `done`, `verified_skip`, `self_skip`, `inferred`가 아닌 모듈 중에서, 선수가 모두 `done`, `verified_skip`, `self_skip`, `estimated`, `inferred`인 것을 고른다. 기본 순서(P → L → D → O → M → X)상 가장 앞선 것을 추천하되, 학습자의 업무에 더 급한 것이 있으면 이유를 말하고 함께 제시한다.
 
 ## 실명과 가명
 
@@ -67,4 +68,5 @@
 - 건너뛴 모듈(`verified_skip`, `self_skip`, `inferred`)도 모듈이 끝난 것으로 보고 `log.md`에 한 줄을 더한다.
 - 모듈을 시작하면 `current.module`과 `current.path`를 적는다. `path`는 `probe`(탐침 중), `skip`, `gap`(빈틈만), `full`(전체) 중 하나다. 탐침을 내면 `current.pending_probe`에 문제를 적고, 답을 받으면 `null`로 되돌린다.
 - 기록 중이라는 말을 학습자에게 하지 않는다.
+- 기록 파일을 검사하려고 Bash·스크립트를 쓰지 않는다. 고친 뒤 Read로 다시 읽어 확인한다.
 - 진도를 물으면 `state.json`을 근거로 답한다. 기억으로 답하지 않는다.

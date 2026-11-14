@@ -12,7 +12,7 @@ const read = (p) => readFileSync(join(root, p), "utf8").replace(/^\uFEFF/, "").r
 
 const LEVELS = ["Explain", "Apply", "Evaluate", "Develop"];
 const FIELDS = ["선수", "핵심 질문", "목표", "만들어 볼 것", "국내 근거", "글로벌 비교", "경계·연결", "근거"];
-const MUST_DOMESTIC = /^[LO]/; // L·O 영역은 국내 근거를 비울 수 없다(R10)
+const MUST_DOMESTIC = /^[LO]/; // L·O 영역은 국내 근거를 비울 수 없다(R10). 낱말 존재만 본다 — 내용의 타당성은 사람 리뷰(G1)의 몫.
 const LAWS = ["정보통신망법", "개인정보 보호법", "공정거래법", "하도급법", "전자상거래법", "청탁금지법", "국가계약법", "조달사업법", "국제상거래뇌물방지법"];
 // 필수 주제(spec.md) → 소속 영역. 그 영역 모듈의 제목·핵심 질문·목표·만들어 볼 것·국내 근거에서만 찾는다.
 const TOPICS = {
@@ -32,12 +32,18 @@ function parseCurriculum(text) {
   const allFields = new Map();
   const problems = [];
   for (const a of AREAS) if (!new RegExp(`^## ${a} · `, "m").test(text)) problems.push(`영역 ${a} 머리말 없음`);
-  const blocks = text.split(/^### /m).slice(1).map((b) => b.split(/^## /m)[0]);
-  for (const block of blocks) {
+  // 블록마다 바로 앞 영역 머리말의 글자를 기억해, 모듈 id 첫 글자와 대조한다.
+  const blocks = []; let area = null;
+  for (const part of text.split(/^(?=## |### )/m)) {
+    if (part.startsWith("## ")) { area = part.slice(3, 4); continue; }
+    if (part.startsWith("### ")) blocks.push({ area, body: part.slice(4) });
+  }
+  for (const { area: inArea, body: block } of blocks) {
     const head = block.split("\n")[0];
     const m = head.match(/^([PLDOMX]\d+) · (.+)$/);
     if (!m) { problems.push(`모듈 제목 형식 오류: ${head}`); continue; }
     const id = m[1];
+    if (inArea !== id[0]) problems.push(`${id}: 영역 ${inArea} 머리말 아래에 있음`);
     if (modules.has(id)) problems.push(`${id}: 중복 id`);
     const fields = { 제목: m[2] };
     for (const line of block.split("\n").slice(1)) {
@@ -83,8 +89,14 @@ function closure(modules, id) {
   return seen;
 }
 
+const kind = (v) => (v === null ? "null" : Array.isArray(v) ? "array" : typeof v);
+const STATUS = ["estimated", "inferred", "in_progress", "done", "verified_skip", "self_skip"];
+const PACE = ["unknown", "flow", "too_fast", "needs_more", "bored_or_ready", "stuck"];
+const MODULE_KEYS = ["level", "status", "evidence", "review_at", "review_step"];
 function sameShape(a, b, path, out) {
   if (a === null || typeof a !== "object" || Array.isArray(a)) return;
+  // 템플릿 값이 null이면 시드에서 무엇이든 될 수 있다(예: current.module). 그 밖에는 타입이 같아야 한다.
+  for (const k of Object.keys(a)) if (k in b && a[k] !== null && kind(a[k]) !== kind(b[k])) out.push(`${path}.${k} 타입 ${kind(b[k])} (템플릿 ${kind(a[k])})`);
   for (const k of Object.keys(a)) if (!(k in b)) out.push(`${path}.${k} 없음`);
   for (const k of Object.keys(b)) if (!(k in a)) out.push(`${path}.${k} 템플릿에 없는 키`);
   for (const k of Object.keys(a)) if (k !== "modules" && k in b && a[k] && typeof a[k] === "object" && !Array.isArray(a[k])) sameShape(a[k], b[k], `${path}.${k}`, out);
@@ -132,6 +144,11 @@ function main() {
   const tpl = json["learner-template/state.json"], seed = json["docs/build/fixtures/graduation-state.json"];
   if (tpl && seed) {
     const shape = []; sameShape(tpl, seed, "state", shape); errors.push(...shape.map((x) => `졸업 시드: ${x}`));
+    for (const [id, m] of Object.entries(seed.modules ?? {})) {
+      for (const k of MODULE_KEYS) if (!(k in m)) errors.push(`졸업 시드: modules.${id}.${k} 없음`);
+      if (!STATUS.includes(m.status)) errors.push(`졸업 시드: modules.${id}.status 값 ${m.status}`);
+    }
+    if (!PACE.includes(seed.pace?.read)) errors.push(`졸업 시드: pace.read 값 ${seed.pace?.read}`);
     for (const p of closure(modules, "X3")) if (!["done", "verified_skip"].includes(seed.modules?.[p]?.status)) errors.push(`졸업 시드: X3 선수 ${p}가 done·verified_skip 아님`);
   }
   if (!existsSync(join(root, "learner-template/log.md"))) errors.push("learner-template/log.md 없음");
